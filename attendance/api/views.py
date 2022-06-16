@@ -9,7 +9,6 @@ import django_filters.rest_framework
 
 
 class AttendanceListAPIView(generics.ListAPIView):
-    # queryset = Attendance.objects.filter(employee_name='')
     serializer_class = AttendanceSerializer
     permission_classes = [IsAuthenticated]
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
@@ -26,26 +25,10 @@ class AttendanceListAPIView(generics.ListAPIView):
 
 
 class AttendanceCreateAPIView(generics.CreateAPIView):
-    # serializer_class = AttendanceSerializerForCreate
     permission_classes = [IsAuthenticated]
     serializer_class = AttendanceSerializerForCreate
-    # def get_serializer(self, *args, **kwargs):
-    #     """
-    #     Return the serializer instance that should be used for validating and
-    #     deserializing input, and for serializing output.
-    #     """
-        # if self.request.user.is_staff and self.request.user.is_superuser: # is_superuser , is_active
-        #     serializer_class = AttendanceSerializer
-        # else:
-        # serializer_class = AttendanceSerializerForCreate
-        # kwargs.setdefault('context', self.get_serializer_context())
-        # return serializer_class(*args, **kwargs)
-
+    
     def perform_create(self, serializer):
-        # if self.request.user.is_staff and self.request.user.is_superuser: # is_superuser , is_active
-        #     serializer.save()
-           
-        # else:
         serializer.save(employee_name=self.request.user)
 
         
