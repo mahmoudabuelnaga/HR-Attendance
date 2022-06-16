@@ -6,8 +6,11 @@ from attendance.models import Attendance
 class AttendanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Attendance
-        fields = ['id', 'employee_name', 'date', 'from_time', 'to_time']
-        
+        fields = [
+            'id', 'employee_name', 'date', 'from_time', 'to_time', 'arrived_late', 
+            'leave_early', 'working_hours', 'overtime_working_hours'
+            ]
+
     
 class AttendanceSerializerForCreate(serializers.ModelSerializer):
     class Meta:
