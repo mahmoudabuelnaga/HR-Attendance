@@ -39,3 +39,5 @@
 11. Create attendance record:
 `http://127.0.0.1:8000/api/create/`
 
+
+![screencapture-127-0-0-1-8000-2022-06-16-15_26_02](https://user-images.githubusercontent.com/40750581/174080206-62eabc21-fc9f-4af4-853f-b6328122af2e.png)
